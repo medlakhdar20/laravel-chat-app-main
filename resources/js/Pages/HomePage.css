@@ -1,0 +1,38 @@
+/* /* شريط الملاحة */
+nav {
+    display: flex;
+    justify-content: space-between;
+    /* توزيع العناصر بالتساوي على طول المساحة العرضية */
+    align-items: center;
+    /* توسيط العناصر عموديًا */
+    background-color: #333;
+    /* لون الخلفية */
+    color: #fff;
+    /* لون النص */
+    padding: 10px 20px;
+    /* هامش داخلي للشريط */
+}
+
+.logo {
+    margin-right: auto;
+    /* تحريك الشعار إلى اليمين */
+}
+
+.buttons {
+    margin-left: auto;
+    /* تحريك الأزرار إلى اليسار */
+}
+
+.button {
+    padding: 10px 20px;
+    /* تحديد هامش داخلي للأزرار */
+    border-radius: 5px;
+    /* شكل الحواف */
+    color: #fff;
+    /* لون النص */
+    text-decoration: none;
+    /* إزالة تأثير النص الأزرق */
+    margin-left: 10px;
+    /* تباعد بين الأزرار */
+}
+

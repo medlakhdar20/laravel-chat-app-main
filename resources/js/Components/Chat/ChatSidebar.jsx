@@ -1,6 +1,19 @@
-import { Link } from "@inertiajs/inertia-react";
+import { useState } from 'react';
+import { Link } from '@inertiajs/inertia-react';
 
 export default function ChatSidebar({ recentMessages }) {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    // تابع البحث
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    // تطبيق البحث على قائمة المستخدمين الأخيرين
+    const filteredUsers = recentMessages.filter(user =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <>
             <div className="search-box h-10 text-slate-300">
@@ -11,6 +24,8 @@ export default function ChatSidebar({ recentMessages }) {
                             type="search"
                             className="font-light border-0 hover:border-0 focus:border-0 focus:ring-0 !shadow-none focus:!outline-none"
                             placeholder="Search"
+                            value={searchTerm}
+                            onChange={handleSearch} // استدعاء تابع البحث عندما يتغير المستخدم حقل البحث
                         />
                     </form>
                     <div className="flex justify-center items-center">
@@ -23,7 +38,7 @@ export default function ChatSidebar({ recentMessages }) {
             </div>
 
             <div className="user-list h-screen overflow-y-auto">
-                {recentMessages.map((user, index) => (
+                {filteredUsers.map((user, index) => (
                     <Link
                         href={`/chat/${user.user_id}`}
                         key={index}
@@ -42,7 +57,7 @@ export default function ChatSidebar({ recentMessages }) {
 
                         <div>
                             <h3 className="text-md text-violet-500">
-                                {user.name.length > 0 ? user.name : "N/A"}
+                                {user.name.length > 0 ? user.name : 'N/A'}
                             </h3>
                             <p className="h-5 overflow-hidden text-sm font-light text-gray-400">
                                 {user.message}

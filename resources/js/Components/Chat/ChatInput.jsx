@@ -22,10 +22,10 @@ export default function ChatInput({ receiver }) {
             <form onSubmit={submit}>
                 <TextInput
                     className="h-16 w-full overflow-y-auto bg-white pt-3 font-light border-0 hover:border-0 focus:border-0 focus:ring-0 !shadow-none focus:!outline-none"
-                    placeHolder="Write a message"
+                    placeholder="Write a  message"
                     name="message"
                     value={data.message}
-                    handleChange={onHandleChange}
+                    onChange={onHandleChange}
                 ></TextInput>
             </form>
         </div>

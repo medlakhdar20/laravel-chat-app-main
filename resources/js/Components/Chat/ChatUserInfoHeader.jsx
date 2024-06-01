@@ -1,25 +1,18 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle, faComment, faVideo, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 export default function ChatUserInfoHeader({ receiver }) {
     return (
         <div className="user-info-header bg-white px-5 py-3">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                    {receiver?.avatar !== undefined ? (
-                        <img
-                            src="https://cdn-icons-png.flaticon.com/512/194/194938.png"
-                            width="50"
-                        />
-                    ) : (
-                        <i className="fa fa-user-circle text-gray-300 text-5xl"></i>
-                    )}
-
-                    <h3 className="text-md pl-4 text-gray-400">
-                        {receiver?.name}
-                    </h3>
+                    <FontAwesomeIcon icon={receiver?.avatar ? faUserCircle : faUserCircle} className="text-gray-300 text-5xl mr-4" />
+                    <h3 className="text-lg text-gray-400">{receiver?.name}</h3>
                 </div>
-                <div>
-                    <i className="fa fa-message text-violet-300"></i>
-                    <i className="fa fa-video ml-3 text-gray-200"></i>
-                    <i className="fa fa-phone ml-3 text-gray-200"></i>
+                <div className="flex">
+                    <FontAwesomeIcon icon={faComment} className="text-violet-300 mr-3" />
+                    <FontAwesomeIcon icon={faVideo} className="text-gray-200 mr-3" />
+                    <FontAwesomeIcon icon={faPhone} className="text-gray-200" />
                 </div>
             </div>
         </div>
